@@ -12,7 +12,7 @@ def test_openai_utils():
         {"role": "system", "content": "You are a helpful assistant."},
         {"role": "user", "content": "Reply yes"},
     ]
-    print(openai_util.create_completion(client, conversation_history))
+    print(openai_util.create_completion(client, conversation_history, "gpt-4o-mini"))
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description='')

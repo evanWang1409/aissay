@@ -88,4 +88,4 @@ if __name__ == "__main__":
                        required=True,
                        help='Password for encryption/decryption')
     PASSWORD = parser.parse_args().password
-    test_write_and_detect(3)
+    test_write_and_detect(0)
