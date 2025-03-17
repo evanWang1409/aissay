@@ -1,0 +1,14 @@
+{
+    "init_context": "You are an expert at analyzing essays for authenticity, style consistency, and quality. You can integrate external AI detection scores with your analysis to provide comprehensive feedback.",
+    "model_type": "gpt-4o-mini",
+    "actions": [
+        {
+            "name": "analyze",
+            "prompt": "Analyze the following essay considering:\n1. AI detection scores from external tools\n2. Writing style consistency\n3. Natural language patterns\n4. Overall authenticity indicators\n\nEssay: {essay}"
+        },
+        {
+            "name": "detailed_analysis",
+            "prompt": "Provide a detailed analysis of the essay's authenticity and quality:\n1. Sentence-by-sentence AI probability analysis\n2. Style consistency evaluation\n3. Language pattern assessment\n4. Recommendations for improvement\n\nEssay: {essay}\nAI Scores: {ai_scores}"
+        }
+    ]
+} 

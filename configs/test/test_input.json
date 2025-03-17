@@ -1,0 +1,28 @@
+{
+    "student_context": {
+        "student_1": "configs/test/materials/student_1.txt",
+        "student_2": "configs/test/materials/student_2.txt",
+        "student_3": "configs/test/materials/student_3.txt"
+    },
+    "essay_prompt": {
+        "mit_personal_journey": "How has the world you come from shaped who you are today?. Max 250 words in the essay.",
+        "lbs_personal_journey": "How have your experiences, upbringing, and life events shaped you to be who you are today?. (Max 300 words)",
+        "fuqua_community_contribution": "Describe how you would plan to be engaged outside of the classroom and how your unique perspective, experiences, and passions will add to the MMS community. (Max 350 words)",
+        "mit_community_contribution": "MIT: What personal qualities will enable you to contribute to the advancement of our mission?. (Max 200 words)",
+        "usc_community_contribution": "USC: Please convey a statement concerning how you would bring value to our community on campus and how our program would be the logical next step for you on your journey. (Max 500 words)",
+        "lbs_community_contribution": "LBS: What does the LBS community mean to you, how do you plan to engage with your new network, and what contributions do you plan to make as a student and future member of the alumni community?. (Max 400 words)",
+        "lbs_career_goals": "What are your short- to medium-term career goals, and what profound impact are you looking to make as you embark upon your career?. (Max 500 words)",
+        "mit_mfin": "Please discuss your past academic and professional experiences and accomplishments that will help you succeed in the MFin program. (Max 200 words)",
+        "usc_applied_psychology": "Explain your academic interest in, understanding of, and academic preparedness for the programme(s) you are applying for. (Max 750 words)",
+        "lbs_program": "Do you feel that your academic performance so far gives an accurate indication of your potential for success on the programme? If so,why? If not, why not? (Max 200 words)"
+    },
+    "essay_context": {},
+    "style_preference": {
+        "style_preference_1": "configs/test/materials/style_1.txt"
+    },
+    "initial_ideas": {
+        "initial_ideas_1": "configs/test/materials/initial_ideas_1.txt",
+        "initial_ideas_2": "configs/test/materials/initial_ideas_2.txt",
+        "initial_ideas_3": "configs/test/materials/initial_ideas_3.txt"
+    }
+}

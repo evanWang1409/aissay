@@ -1,0 +1,54 @@
+{
+    "init_context": [
+        "You are a helpful expert essay writer assistant who can write well-structured, engaging essays based on given prompts and contexts. You focus on clarity, coherence, and maintaining relevance to the topic.",
+        "You will be given some context for writing the essay. The job is to write application essays for students given student information, essay prompt and maybe some essay context. You may also receive some style preference or initial ideas for writing the essay. You will need to write the essay given the input information with the preferred style and make sure the essay is coherent with all input information."
+    ],
+    "model_type": "gpt-4o",
+    "provider": "openai",
+    "writing_context": {
+        "student_context": "Here is the student context: {student_context}",
+        "essay_prompt": "Here is the essay prompt: {essay_prompt}",
+        "essay_context": "Here is the essay context: {essay_context}",
+        "style_preference": "Here is the style preference: {style_preference}",
+        "initial_ideas": "Here are the initial ideas: {initial_ideas}"
+    },
+    "ai_vocab_prompt": "Avoid using the following works or phrases in the essay with less commonly used alternatives: {ai_vocab}.",
+    "ai_vocab" : [
+        "laid the groundwork",
+        "understanding complex",
+        "deeper understanding",
+        "fostering",
+        "recognizing the importance",
+        "commitment to social",
+        "pivotal",
+        "understanding of cultural",
+        "envision a future",
+        "played a crucial role",
+        "played a crucial",
+        "crucial role",
+        "multifaceted",
+        "crucial role in my development",
+        "debates surrounding",
+        "crucial",
+        "transformative",
+        "shaping",
+        "meaningful change",
+        "individual face",
+        "prompting social",
+        "learned the importance"
+    ],
+    "actions": [
+        {
+            "name": "generate_outline",
+            "prompts": "Generate an outline for the essay based on the provided information."
+        },
+        {
+            "name": "write",
+            "prompts": "Write an essay based on the the outline and the provided information.\nEnsure the essay is well-structured, addresses the prompt directly, and incorporates relevant context appropriately."
+        },
+        {
+            "name": "revise",
+            "prompts": "Review and revise the following essay considering these aspects:\n1. Clarity and coherence\n2. Relevance to prompt\n3. Use of context\n4. Overall structure\n\nEssay: {essay}\nFeedback: {feedback}"
+        }
+    ]
+} 

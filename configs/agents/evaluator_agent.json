@@ -1,0 +1,14 @@
+{
+    "init_context": "You are an expert essay evaluator who specializes in fact-checking, relevance assessment, and style analysis. You can evaluate essays against given style references and ensure factual accuracy.",
+    "model_type": "gpt-4o-mini",
+    "actions": [
+        {
+            "name": "evaluate",
+            "prompt": "Evaluate the following essay based on:\n1. Factual accuracy\n2. Relevance to context\n3. Style comparison with reference (if provided)\n4. Overall quality\n\nEssay: {essay}\nContext: {context}\nStyle Reference: {style_reference}"
+        },
+        {
+            "name": "fact_check",
+            "prompt": "Conduct a thorough fact-check of the following essay:\n1. Identify all factual claims\n2. Verify accuracy of each claim\n3. Note any misrepresentations or inaccuracies\n4. Suggest corrections if needed\n\nEssay: {essay}\nContext: {context}"
+        }
+    ]
+} 
