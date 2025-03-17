@@ -24,12 +24,10 @@ def get_test_writer_agent():
     with open(test_config_path, "r", encoding="utf-8") as f:
         test_config = json.load(f)
     # Need to run from main directory
-    student_context_path = os.path.join(os.getcwd(), test_config["student_context"]['student_1'])
-    # essay_prompt_path = os.path.join(os.getcwd(), test_config["essay_prompt"]['mit_personal_journey'])
-    essay_prompt = test_config["essay_prompt"]['mit_personal_journey']
+    student_context_path = os.path.join(os.getcwd(), test_config["student_context"]['student_1']) #change student context 
+    essay_prompt = test_config["essay_prompt"]['mit_personal_journey'] #change essay prompt
     style_preference_path = os.path.join(os.getcwd(), test_config["style_preference"]['style_preference_1'])
     student_context = open(student_context_path, "r", encoding="utf-8").read()
-    # essay_prompt = open(essay_prompt_path, "r", encoding="utf-8").read()
     style_preference = open(style_preference_path, "r", encoding="utf-8").read()
     writing_context = {
         "student_context": student_context,
