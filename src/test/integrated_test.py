@@ -68,7 +68,7 @@ def test_write_and_detect(num_iter: int = 3):
     print("-"*100, "\n")
     
     for i in range(num_iter):
-        prompt = "This version is too ai. Rewrite it to be more human and avoid common ai writing patterns and phrases."
+        prompt = "This version is too ai. Rewrite it to be more human and avoid common ai writing patterns and phrases." #change prompt to add humanize instruction
         writer_agent.generate_response(prompt)
         result = gptzero_util.analyze_text(writer_agent.latest_response)
         sentences_prob = gptzero_util.get_sentence_ai_probabilities(result)
@@ -86,4 +86,4 @@ if __name__ == "__main__":
                        required=True,
                        help='Password for encryption/decryption')
     PASSWORD = parser.parse_args().password
-    test_write_and_detect(0)
+    test_write_and_detect(1)
