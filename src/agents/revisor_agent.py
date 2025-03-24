@@ -39,20 +39,19 @@ class RevisorAgent(BaseAgent):
         """Revise specified sentences in an essay"""
         
         sentences_prompt = '\n'.join(sentences_to_revise)
-        
-        prompt = f"""
-        Please revise the following essay by rephrasing only the specified sentences to sound more natural and human-like.
-        Maintain the original meaning and flow of the essay while avoiding common AI writing patterns and phrases.
-        
-        Original Essay:
-        {essay}
-        
-        Sentences to revise (numbered as they appear in the essay):
-        {sentences_prompt}
-        
-        Provide only the complete revised essay itself. Do not include any other text such as "Revised Essay:" or "Original Essay:" or "Sentences to revise:".
-        """
-        
+
+        prompt = (
+            "Please revise the following essay by rephrasing only the specified sentences to sound more natural and human-like.\n"
+            + "Maintain the original meaning and flow of the essay while avoiding common AI writing patterns and phrases.\n"
+            + "Original Essay:\n"
+            + essay
+            + "\n"
+            + "Sentences to revise (numbered as they appear in the essay):\n"
+            + sentences_prompt
+            + "\n"
+            + "Provide only the complete revised essay itself. Do not include any other text such as 'Revised Essay:' or 'Original Essay:' or 'Sentences to revise:'."
+        )
+
         return self.generate_response(prompt)
     
     def dump_conversation_history(self, agent_type: str = 'revisor') -> List[Dict]:

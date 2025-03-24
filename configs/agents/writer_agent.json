@@ -46,8 +46,12 @@
             "prompts": "Generate an outline for the essay based on the provided information."
         },
         {
-            "name": "write",
+            "name": "write_with_outline",
             "prompts": "Write an essay based on the the outline and the provided information.\nEnsure the essay is well-structured, addresses the prompt directly, and incorporates relevant context appropriately."
+        },
+        {
+            "name": "write",
+            "prompts": "Write an essay based on the provided information and the style preference.\nEnsure the essay is well-structured, addresses the prompt directly, and incorporates relevant context appropriately."
         },
         {
             "name": "revise",
