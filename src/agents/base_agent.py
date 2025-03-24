@@ -67,7 +67,7 @@ class BaseAgent:
         log_file_path = os.path.join(LOG_FILE_DIR, log_file_name)
         with open(log_file_path, "w", encoding="utf-8") as f:
             for message in self.conversation_history:
-                f.write("-" * 30 + f"{message['role']}:\n{message['content']}\n")
+                f.write("-" * 30 + f"\n{message['role']}:\n{message['content']}\n")
 
     # def execute_action(self, action_name: str, **kwargs) -> str:
     #     action_config = next(

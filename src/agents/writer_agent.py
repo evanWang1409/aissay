@@ -36,8 +36,8 @@ class WriterAgent(BaseAgent):
         if "initial_ideas" in context and context["initial_ideas"] is not None:
             writing_context_prompts.append(writing_context["initial_ideas"].format(initial_ideas=context.get("initial_ideas", "")))
         
-        ai_vocab_prompt = self.config["ai_vocab_prompt"].format(ai_vocab=self.config.get("ai_vocab", []))
-        writing_context_prompts.append(ai_vocab_prompt)
+        # ai_vocab_prompt = self.config["ai_vocab_prompt"].format(ai_vocab=self.config.get("ai_vocab", []))
+        # writing_context_prompts.append(ai_vocab_prompt)
         
         unified_prompt = self.unify_prompts(writing_context_prompts)
         self.conversation_history.append({"role": "user", "content": unified_prompt})
