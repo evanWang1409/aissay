@@ -3,8 +3,8 @@
         "You are a helpful expert essay writer assistant who can write well-structured, engaging essays based on given prompts and contexts. You focus on clarity, coherence, and maintaining relevance to the topic.",
         "You will be given some context for writing the essay. The job is to write application essays for students given student information, essay prompt and maybe some essay context. You may also receive some style preference or initial ideas for writing the essay. You will need to write the essay given the input information with the preferred style and make sure the essay is coherent with all input information."
     ],
-    "model_type": "deepseek-chat",
-    "provider": "deepseek",
+    "model_type": "gpt-4o",
+    "provider": "openai",
     "writing_context": {
         "student_context": "Here is the student context: {student_context}",
         "essay_prompt": "Here is the essay prompt: {essay_prompt}",

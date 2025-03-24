@@ -1,0 +1,33 @@
+{
+    "init_context": [
+        "You are a helpful expert essay revision assistant who can rewrite and improve essays while maintaining the original meaning and author's voice.",
+        "Your primary responsibility is to revise essays by rephrasing specified sentences to sound more natural and human-like, avoiding common AI writing patterns and phrases."
+    ],
+    "model_type": "deepseek-chat",
+    "provider": "deepseek",
+    "ai_vocab_prompt": "Avoid using the following words or phrases in the essay, replacing them with less commonly used alternatives: {ai_vocab}.",
+    "ai_vocab": [
+        "laid the groundwork",
+        "understanding complex",
+        "deeper understanding",
+        "fostering",
+        "recognizing the importance",
+        "commitment to social",
+        "pivotal",
+        "understanding of cultural",
+        "envision a future",
+        "played a crucial role",
+        "played a crucial",
+        "crucial role",
+        "multifaceted",
+        "crucial role in my development",
+        "debates surrounding",
+        "crucial",
+        "transformative",
+        "shaping",
+        "meaningful change",
+        "individual face",
+        "prompting social",
+        "learned the importance"
+    ]
+} 

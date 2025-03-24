@@ -1,6 +1,8 @@
 """Test module for OpenAIUtils class."""
 import argparse
 from src.agents.writer_agent import WriterAgent
+from src.flow import EssayFlow
+from src.session import EssaySession
 from src.utils.gptzero_utils import GPTZeroUtils
 from src.utils.test.gptzero_utils_test import test_gptzero_utils
 import json
@@ -79,6 +81,27 @@ def test_write_and_detect(num_iter: int = 3):
         print("Sentences Pred: ", sentences_prob)
         print("-"*100, "\n")
         
+        
+def test_flow():
+    with open(test_config_path, "r", encoding="utf-8") as f:
+        test_config = json.load(f)
+    # Need to run from main directory
+    student_context_path = os.path.join(os.getcwd(), test_config["student_context"]['student_1'])
+    # essay_prompt_path = os.path.join(os.getcwd(), test_config["essay_prompt"]['mit_personal_journey'])
+    essay_prompt = test_config["essay_prompt"]['mit_personal_journey']
+    style_preference_path = os.path.join(os.getcwd(), test_config["style_preference"]['style_preference_1'])
+    student_context = open(student_context_path, "r", encoding="utf-8").read()
+    # essay_prompt = open(essay_prompt_path, "r", encoding="utf-8").read()
+    style_preference = open(style_preference_path, "r", encoding="utf-8").read()
+    writing_context = {
+        "student_context": student_context,
+        "essay_prompt": essay_prompt,
+        "style_preference": style_preference
+    }
+    session = EssaySession(PASSWORD)
+    flow = EssayFlow(session)
+    flow.initialize_session(writing_context)
+    flow.execute_flow()
     
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description='')
@@ -86,4 +109,4 @@ if __name__ == "__main__":
                        required=True,
                        help='Password for encryption/decryption')
     PASSWORD = parser.parse_args().password
-    test_write_and_detect(1)
+    test_flow()

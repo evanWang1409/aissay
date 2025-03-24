@@ -1,6 +1,7 @@
 from typing import Dict, List, Optional
 from src.agents.base_agent import BaseAgent
 import json
+import math
 
 class WriterAgent(BaseAgent):
     def __init__(self, config_path: str, encryption_key: str, provider: str = None):
@@ -41,6 +42,35 @@ class WriterAgent(BaseAgent):
         unified_prompt = self.unify_prompts(writing_context_prompts)
         self.conversation_history.append({"role": "user", "content": unified_prompt})
         self.latest_prompt = unified_prompt
+    
+    def random_sentence_selection(self, essay: str) -> List[str]:
+        sentences = essay.split('.')
+        sentences_clean = [s.strip() for s in sentences if s.strip() != ""]
+        res = []
+        # Select every 3 sentences
+        for i in range(math.floor(len(sentences_clean)/3)):
+            res.append(sentences_clean[i*3])
+        return res
+
+    def revise_by_sentences(self):
+        """Revise the essay by selecting sentences"""
+        prompt = "Please revise the essay by rewriting the following sentences in the essay to be more human and avoid common ai writing patterns and phrases.\n"
+        sentences = self.random_sentence_selection(self.latest_response)
+        prompt += "Here are the sentences:\n"
+        for sentence in sentences:
+            prompt += f"{sentence}.\n"
+        prompt += "Only show the full revised essay."
+        return self.generate_response(prompt)
+        
+    def revise_essay_by_sentences(self, essay: str, sentences: List[str]) -> str:
+        """Rewrite sentences selected sentences in essay"""
+        prompt = "Please revise the essay by rephrasing the following sentences in the essay to be more human and avoid common ai writing patterns and phrases.\n"
+        prompt += f"Original Essay:\n{essay}\n"
+        prompt += "Here are the sentences to rephrase:\n"
+        for sentence in sentences:
+            prompt += f"{sentence}.\n"
+        prompt += "Only show the full revised essay."
+        return self.generate_response(prompt)
         
         
     def get_action_prompt(self, action_name: str) -> str:
@@ -69,37 +99,5 @@ class WriterAgent(BaseAgent):
         {feedback}
         
         Please provide an improved outline that addresses the feedback while maintaining a clear structure.
-        """
-        return self.generate_response(prompt)
-        
-    def write_essay(self, outline: str, context: Dict) -> str:
-        """Write an essay based on the approved outline"""
-        prompt = f"""
-        Write an essay following this outline and context:
-        
-        Outline:
-        {outline}
-        
-        Student Background: {context['user_context']}
-        Essay Prompt: {context['essay_prompt']}
-        Context: {context.get('prompt_context', 'None provided')}
-        Style Preferences: {context.get('style_preference', 'None provided')}
-        
-        Please write a well-structured essay that follows the outline while maintaining a natural, human-like writing style.
-        """
-        return self.generate_response(prompt)
-        
-    def revise_essay(self, essay: str, feedback: Dict) -> str:
-        """Revise the essay based on feedback"""
-        prompt = f"""
-        Please revise the following essay based on the provided feedback:
-        
-        Original Essay:
-        {essay}
-        
-        Feedback and Suggestions:
-        {feedback}
-        
-        Please provide a revised version that addresses the feedback while maintaining a natural, human-like writing style.
         """
         return self.generate_response(prompt)
