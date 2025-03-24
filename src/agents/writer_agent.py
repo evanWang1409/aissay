@@ -101,3 +101,6 @@ class WriterAgent(BaseAgent):
         Please provide an improved outline that addresses the feedback while maintaining a clear structure.
         """
         return self.generate_response(prompt)
+    
+    def dump_conversation_history(self, agent_type: str = 'writer') -> List[Dict]:
+        return super().dump_conversation_history(agent_type)

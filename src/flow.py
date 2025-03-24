@@ -66,3 +66,7 @@ class EssayFlow:
         print("="*100, "\n")
         print("Sentences Pred: ", sentences_prob)
         print("-"*100, "\n")
+        
+        self.session.writer.dump_conversation_history('writer')
+        self.session.revisor.dump_conversation_history('revisor')
+        self.session.detector.dump_result(final_detection)

@@ -1,6 +1,9 @@
-import json
+import json, os
+from datetime import datetime
 from typing import Dict, List, Optional
 from src.utils.ai_convo_utils import AIConvoUtils
+
+LOG_FILE_DIR = "logs"
 
 class BaseAgent:
     def __init__(self, config_path: str, encryption_key: str, provider: str = "openai"):
@@ -58,7 +61,14 @@ class BaseAgent:
         self.latest_prompt = new_user_input
         self.latest_response = response
         return response
-            
+    
+    def dump_conversation_history(self, agent_type: str) -> List[Dict]:
+        log_file_name = f"{agent_type}_{datetime.now().strftime('%Y-%m-%d_%H-%M-%S')}.txt"
+        log_file_path = os.path.join(LOG_FILE_DIR, log_file_name)
+        with open(log_file_path, "w", encoding="utf-8") as f:
+            for message in self.conversation_history:
+                f.write("-" * 30 + f"{message['role']}:\n{message['content']}\n")
+
     # def execute_action(self, action_name: str, **kwargs) -> str:
     #     action_config = next(
     #         (action for action in self.actions if action["name"] == action_name),

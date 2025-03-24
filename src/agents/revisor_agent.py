@@ -55,6 +55,9 @@ class RevisorAgent(BaseAgent):
         
         return self.generate_response(prompt)
     
+    def dump_conversation_history(self, agent_type: str = 'revisor') -> List[Dict]:
+        return super().dump_conversation_history(agent_type)
+    
     def revise_entire_essay(self, essay: str) -> str:
         """Revise an entire essay to make it sound more natural and human-like"""
         # Initialize context if not already done

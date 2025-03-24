@@ -1,7 +1,9 @@
-import json
-import requests
+import json, requests, os
+from datetime import datetime
 from typing import Dict, List
 from src.utils.encryption_utils import EncryptionUtils
+
+LOG_FILE_DIR = "logs"
 
 class GPTZeroUtils:
     def __init__(self, encryption_key: str, threshold: float):
@@ -43,3 +45,9 @@ class GPTZeroUtils:
         probabilities = []
         probabilities.extend(pred["generated_prob"] for pred in sentences_pred)
         return probabilities
+    
+    def dump_result(self, result):
+        file_name = f"gptzero_result_{datetime.now().strftime('%Y-%m-%d_%H-%M-%S')}.json"
+        log_file_path = os.path.join(LOG_FILE_DIR, file_name)
+        with open(log_file_path, "w", encoding="utf-8") as f:
+            json.dump(result, f, indent=4)
